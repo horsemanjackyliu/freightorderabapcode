@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for  Freight Order'
+define service ZFREIGHTORDER_SERVICE {
+  expose ZC_FREIGHTORDER;
+  expose ZC_FORDER_ITEMS;
+}

@@ -1,0 +1,321 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'FreightOrderItem',
+    typeNamePlural: 'FreightOrderItem',
+    description: { type: #STANDARD ,value: 'TranspOrdItem',label: 'TranspOrdItem' }
+  }
+}
+
+annotate view ZC_FORDER_ITEMS with
+{
+
+  @UI.facet: [ {
+    id: 'TranspOrdItem',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Freight Order Item',
+    position: 10
+  },{
+      id: 'FreightOrder',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Freight Order',
+      position: 20,
+      targetElement: '_FREIGHTORDER'
+    }  ]
+    
+    
+//  @UI.identification:[{ type: #FOR_ACTION,dataAction: 'uploadfile',label:'UploadFile',position:10 },{ type: #FOR_ACTION,dataAction: 'downloadfile',label:'downloadfile',position:20 }]  
+    
+  @UI.lineItem: [ {
+ position: 280 ,label: 'TranspOrdItem',
+ importance: #MEDIUM
+ } ]
+//  @UI.identification: [ {
+//    position: 280,label: 'TranspOrdItem'
+//  } ,{ type: #FOR_ACTION,dataAction: 'uploadfile',label:'UploadFile',position:10 },{ type: #FOR_ACTION,dataAction: 'downloadfile',label:'downloadfile',position:20 }]
+//  
+  @UI.identification: [ {
+    position: 280,label: 'TranspOrdItem'
+  }]
+  
+  TransportationOrderItem;
+
+
+  @UI.lineItem: [ {
+  position: 270 ,label: 'TranspOrdItem',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 270,label: 'TranspOrdItem'
+  } ]
+  TransportationOrderUuid;
+  @UI.lineItem: [ {
+  position: 10 ,label: 'TranspOrdItem',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 10,label: 'TranspOrdItem'
+  } ]
+  @UI.selectionField: [{ position: 10 }]
+  TranspOrdItem;
+  @UI.lineItem: [ {
+  position: 20 ,label: 'TranspOrdItemType',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20,label: 'TranspOrdItemType'
+  } ]
+  @UI.selectionField: [{ position: 20 }]
+  TranspOrdItemType;
+  @UI.lineItem: [ {
+  position: 30 ,label: 'TranspOrdItemCategory',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 30,label: 'TranspOrdItemCategory'
+  } ]
+  @UI.selectionField: [{ position: 30 }]
+  TranspOrdItemCategory;
+  @UI.lineItem: [ {
+  position: 40 ,label: 'TranspOrdItemDesc',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 40,label: 'TranspOrdItemDesc'
+  } ]
+  TranspOrdItemDesc;
+  @UI.hidden: true
+  SourceStopUuid;
+  @UI.hidden: true
+  DestinationStopUuid;
+  @UI.hidden: true
+  ShipperUuid;
+  @UI.lineItem: [ {
+  position: 50 ,label: 'Shipper',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 50,label: 'Shipper'
+  } ]
+  @UI.selectionField: [{ position: 40 }]
+  Shipper;
+  @UI.lineItem: [ {
+  position: 60 ,label: 'ShipperAddressId',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 60,label: 'ShipperAddressId'
+  } ]
+  @UI.selectionField: [{ position: 50 }]
+  ShipperAddressId;
+  @UI.hidden: true
+  ConsigneeUuid;
+  @UI.lineItem: [ {
+  position: 70 ,label: 'Consignee',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 70,label: 'Consignee'
+  } ]
+  @UI.selectionField: [{ position: 60 }]
+  Consignee;
+  @UI.lineItem: [ {
+  position: 80 ,label: 'ConsigneeAddressId',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 80,label: 'ConsigneeAddressId'
+  } ]
+  @UI.selectionField: [{ position: 70 }]
+  ConsigneeAddressId;
+  @UI.lineItem: [ {
+  position: 90 ,label: 'TranspBaseDocument',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 90,label: 'TranspBaseDocument'
+  } ]
+  @UI.selectionField: [{ position: 80 }]
+  TranspBaseDocument;
+  @UI.lineItem: [ {
+  position: 100 ,label: 'TranspBaseDocumentType',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 100,label: 'TranspBaseDocumentType'
+  } ]
+  @UI.selectionField: [{ position: 90 }]
+
+  TranspBaseDocumentType;
+  @UI.lineItem: [ {
+  position: 110 ,label: 'TranspBaseDocumentItem',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 110,label: 'TranspBaseDocumentItem'
+  } ]
+  TranspBaseDocumentItem;
+  @UI.lineItem: [ {
+  position: 120 ,label: 'TransportationEquipmentG',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 120,label: 'TransportationEquipmentG'
+  } ]
+  TransportationEquipmentG;
+  @UI.lineItem: [ {
+  position: 130 ,label: 'EquipmentType',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 130, label: 'EquipmentType'
+  } ]
+  TransportationEquipmentT;
+  @UI.lineItem: [ {
+  position: 140 ,label: 'PlateNumber',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 140, label: 'PlateNumber'
+  } ]
+  TranspEquipmentPlateNum;
+  @UI.lineItem: [ {
+  position: 150 ,label: 'TranspEquipRegistration',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 150,label: 'TranspEquipRegistration'
+  } ]
+  TranspEquipRegistration;
+  @UI.lineItem: [ {
+  position: 140 ,
+  importance: #MEDIUM,
+  label: 'PackageID'
+  } ]
+  @UI.identification: [ {
+    position: 140, label: 'PackageID'
+  } ]
+  TranspOrdItemPackageId;
+  @UI.lineItem: [ {
+  position: 150 , label: 'ProductId',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 150, label: 'ProductId'
+  } ]
+  @UI.selectionField: [{ position: 100 }]
+  ProductId;
+  @UI.lineItem: [ {
+  position: 160 , label: 'MaterialFreightGroup',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 160, label: 'MaterialFreightGroup'
+  } ]
+  @UI.selectionField: [{ position: 110 }]
+  MaterialFreightGroup;
+  @UI.lineItem: [ {
+  position: 170 , label: 'TransportationGroup',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 170, label: 'TransportationGroup'
+  } ]
+  @UI.selectionField: [{ position: 120 }]
+  TransportationGroup;
+  @UI.lineItem: [ {
+  position: 180 , label: 'TranspOrdItemQuantity',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 180, label: 'TranspOrdItemQuantity'
+  } ]
+
+  TranspOrdItemQuantity;
+  @UI.lineItem: [ {
+  position: 190 ,
+  importance: #MEDIUM,label:'QuantityUnit'
+  } ]
+  @UI.identification: [ {
+    position: 190,label:'QuantityUnit'
+  } ]
+  TranspOrdItemQuantityU;
+  @UI.lineItem: [ {
+  position: 200 ,
+  importance: #MEDIUM,label:'GrossWeight'
+  } ]
+  @UI.identification: [ {
+    position: 200,label:'GrossWeight'
+  } ]
+
+  TranspOrdItemGrossWeig;
+  @UI.lineItem: [ {
+  position: 210 ,
+  importance: #MEDIUM,label:'GrossWeightUnit'
+  } ]
+  @UI.identification: [ {
+    position: 210,label:'GrossWeightUnit'
+  } ]
+  TranspOrdItemGrossWe2;
+  @UI.lineItem: [ {
+  position: 220 ,
+  importance: #MEDIUM,label:'GrossVolumn'
+  } ]
+  @UI.identification: [ {
+    position: 220,label:'GrossVolumn'
+  } ]
+  TranspOrdItemGrossVolu;
+  @UI.lineItem: [ {
+  position: 230 ,
+  importance: #MEDIUM,label:'GrossVolumnUnit'
+  } ]
+  @UI.identification: [ {
+    position: 230,label:'GrossVolumnUnit'
+  } ]
+  TranspOrdItemGrossVo2;
+  @UI.lineItem: [ {
+  position: 240 ,
+  importance: #MEDIUM,label:'NetWeight'
+  } ]
+  @UI.identification: [ {
+    position: 240,label:'NetWeight'
+  } ]
+  TranspOrdItemNetWeight;
+  @UI.lineItem: [ {
+  position: 250 ,
+  importance: #MEDIUM,label:'NetWeightUnit'
+  } ]
+  @UI.identification: [ {
+    position: 250,label:'NetWeightUnit'
+  } ]
+  TranspOrdItemNetWeig2;
+  @UI.lineItem: [ {
+  position: 260 ,
+  importance: #MEDIUM,label:'DangerousGoods'
+  } ]
+  @UI.identification: [ {
+    position: 260,label:'DangerousGoods'
+  } ]
+  TranspOrdItemDngrsGds;
+  
+    @UI.lineItem: [ {
+  position: 270 ,label: 'SDMRepositoryid',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 270,label: 'SDMRepositoryid'
+  } ]
+   Repositoryid;
+  @UI.lineItem: [ {
+  position: 280 ,label: 'SDMFileobjectID',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 280,label: 'SDMFileobjectID'
+  } ]
+  Fileobjectid;
+
+
+
+}

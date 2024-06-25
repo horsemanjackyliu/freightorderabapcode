@@ -1,0 +1,216 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'FreightOrder',
+    typeNamePlural: 'FreightOrder',    
+    description: { type: #STANDARD ,value: 'Transportationorder',label: 'Transportationorder' }
+  }
+}
+annotate view ZC_FREIGHTORDER with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Freight Order Header',
+    position: 10
+  },  {
+      id: 'FreightOrderItems',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Freight Order Items',
+      position: 20,
+      targetElement: '_ITEMS'
+    } ]
+  
+  
+// @UI.identification:[{ type: #FOR_ACTION,dataAction: 'uploadfile',label:'UploadFile',position:10 },{ type: #FOR_ACTION,dataAction: 'downloadfile',label:'downloadfile',position:20 }]
+
+
+    @UI.lineItem: [ {
+  position: 200 ,label: 'TransportationOrderUUID',
+  importance: #HIGH
+  } ]
+
+  Transportationorderuuid;
+  @UI.lineItem: [ {
+  position: 10 ,label: 'TransportationOrder',
+  importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 10,label: 'TransportationOrder'
+  } ]
+  @UI.selectionField: [{ position: 10 }]
+  Transportationorder;
+  @UI.hidden: true
+  CarrierUuid;
+  @UI.lineItem: [ {
+  position: 20 ,label: 'Carrier',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20,label: 'Carrier'
+  } ]
+  @UI.selectionField: [{ position: 20 }]
+  Carrier;
+  @UI.hidden: true
+  ShipperUuid;
+  @UI.lineItem: [ {
+  position: 30 ,label: 'Shipper',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 30,label: 'Shipper'
+  } ]
+  @UI.selectionField: [{ position: 30 }]
+
+  Shipper;
+  @UI.lineItem: [ {
+  position: 40 ,label: 'ShipperAddressID',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 40,label: 'ShipperAddressID'
+  } ]
+  @UI.selectionField: [{ position: 40 }]
+  ShipperAddressId;
+  @UI.hidden: true
+  ConsigneeUuid;
+  @UI.lineItem: [ {
+  position: 50 ,label: 'Consignee',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 50,label: 'Consignee'
+  } ]
+  @UI.selectionField: [{ position: 50 }]
+  Consignee;
+  @UI.lineItem: [ {
+  position: 60 ,label: 'ConsigneeAddressId',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 60,label: 'ConsigneeAddressId'
+  } ]
+  @UI.selectionField: [{ position: 60 }]
+  ConsigneeAddressId;
+  @UI.lineItem: [ {
+  position: 70 ,label: 'TranspPurgOrg',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 70,label: 'TranspPurgOrg'
+  } ]
+  @UI.selectionField: [{ position: 70 }]
+  TranspPurgOrg;
+  @UI.lineItem: [ {
+  position: 80 ,label: 'TranspPurgGroup',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 80,label: 'TranspPurgGroup'
+  } ]
+  @UI.selectionField: [{ position: 80 }]
+  TranspPurgGroup;
+  @UI.lineItem: [ {
+  position: 90 ,label: 'PurgOrgCompanyCode',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 90,label: 'PurgOrgCompanyCode'
+  } ]
+  @UI.selectionField: [{ position: 90 }]
+  PurgOrgCompanyCode;
+  @UI.lineItem: [ {
+  position: 100 ,label: 'CarrierAccountNumber',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 100,label: 'CarrierAccountNumber'
+  } ]
+  @UI.selectionField: [{ position: 100 }]
+  CarrierAccountNumber;
+  @UI.lineItem: [ {
+  position: 110 ,label: 'TranspOrdInvoicingCarri',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 110
+  } ]
+  TranspOrdInvoicingCarri;
+  @UI.lineItem: [ {
+  position: 120 ,label: 'CreatedByUser',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 120,label: 'CreatedByUser'
+  } ]
+  @UI.selectionField: [{ position: 110 }]
+  CreatedByUser;
+
+  @UI.lineItem: [ {
+  position: 130 ,label: 'TransportationMode',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 130,label: 'TransportationMode'
+  } ]
+  @UI.selectionField: [{ position: 120 }]
+  Transportationmode;
+  @UI.lineItem: [ {
+  position: 140 ,label: 'Transportationordertype',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 140,label: 'Transportationordertype'
+  } ]
+  @UI.selectionField: [{ position: 130 }]
+  Transportationordertype;
+  @UI.lineItem: [ {
+  position: 150 ,label: 'Transportationshippingtype',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 150,label: 'Transportationshippingtype'
+  } ]
+  @UI.selectionField: [{ position: 140 }]
+  Transportationshippingtype;
+  @UI.hidden: true
+  Transppurgorgextid;
+  @UI.hidden: true
+  TransportationModeCatego;
+  @UI.lineItem: [ {
+  position: 160 ,label: 'TranspOrdExecutionIsBl',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 160,label: 'TranspOrdExecutionIsBlocked'
+  } ]
+  @UI.selectionField: [{ position: 150 }]
+  TranspOrdExecutionIsBl;
+  @UI.lineItem: [ {
+  position: 170 ,label: 'TransportationOrderExec',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 170,label: 'TransportationOrderExec'
+  } ]
+
+  TransportationOrderExec;
+  @UI.lineItem: [ {
+  position: 180 ,label: 'SDMRepositoryid',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 180,label: 'SDMRepositoryid'
+  } ]
+  Repositoryid;
+  @UI.lineItem: [ {
+  position: 190 ,label: 'SDMFileobjectID',
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 190,label: 'SDMFileobjectID'
+  } ]
+  Fileobjectid;
+
+}

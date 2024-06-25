@@ -1,0 +1,23 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_FREIGHTORDER //alias <alias_name>
+{
+//  use create;
+  use update;
+//  use delete;
+  use action uploadfile;
+  use function downloadfile;
+  use association _items {create;}
+
+
+}
+
+define behavior for ZC_FORDER_ITEMS
+{
+  use update;
+////  use delete;
+  use action uploadfile;
+  use function downloadfile;
+use association _FREIGHTORDER;
+}

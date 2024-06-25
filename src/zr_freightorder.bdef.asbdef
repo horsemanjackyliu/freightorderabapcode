@@ -1,0 +1,98 @@
+managed implementation in class zbp_r_freightorder unique;
+strict ( 2 );
+
+define behavior for ZR_FREIGHTORDER alias freightorder
+persistent table ztb_freightorder
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  mapping for ztb_freightorder corresponding
+    {
+      Transportationorderuuid    = transportationorderuuid;
+      Transportationorder        = transportationorder;
+      CarrierUuid                = carrier_uuid;
+      Carrier                    = carrier;
+      ShipperUuid                = shipper_uuid;
+      Shipper                    = shipper;
+      ShipperAddressId           = shipper_address_id;
+      ConsigneeUuid              = consignee_uuid;
+      Consignee                  = consignee;
+      ConsigneeAddressId         = consignee_address_id;
+      TranspPurgOrg              = transp_purg_org;
+      TranspPurgGroup            = transp_purg_group;
+      PurgOrgCompanyCode         = purg_org_company_code;
+      CarrierAccountNumber       = carrier_account_number;
+      TranspOrdInvoicingCarri    = transp_ord_invoicing_carri;
+      CreatedByUser              = created_by_user;
+      CreationDateTime           = creation_date_time;
+      Transportationmode         = transportationmode;
+      Transportationordertype    = transportationordertype;
+      Transportationshippingtype = transportationshippingtype;
+      Transppurgorgextid         = transppurgorgextid;
+      TransportationModeCatego   = transportation_mode_catego;
+      TranspOrdExecutionIsBl     = transp_ord_execution_is_bl;
+      TransportationOrderExec    = transportation_order_exec;
+      Repositoryid               = repositoryid;
+      Fileobjectid               = fileobjectid;
+    }
+  //   create ;
+  update;
+  //     delete ;
+  action uploadfile parameter zfile_content_raw result [1] $self;
+  function downloadfile result [1] CMIS_S_CONTENT_RAW;
+  association _items { create; }
+}
+
+define behavior for ZR_FORDER_ITEMS //alias <alias_name>
+persistent table ztb_forder_items
+lock dependent by _FREIGHTORDER
+authorization dependent by _FREIGHTORDER
+//etag master <field_name>
+{
+  mapping for ztb_forder_items corresponding
+    {
+      TransportationOrderItem  = transportation_order_item;
+      TransportationOrderUuid  = transportation_order_uuid;
+      TranspOrdItem            = transp_ord_item;
+      TranspOrdItemType        = transp_ord_item_type;
+      TranspOrdItemCategory    = transp_ord_item_category;
+      TranspOrdItemDesc        = transp_ord_item_desc;
+      SourceStopUuid           = source_stop_uuid;
+      DestinationStopUuid      = destination_stop_uuid;
+      ShipperUuid              = shipper_uuid;
+      Shipper                  = shipper;
+      ShipperAddressId         = shipper_address_id;
+      ConsigneeUuid            = consignee_uuid;
+      Consignee                = consignee;
+      ConsigneeAddressId       = consignee_address_id;
+      TranspBaseDocument       = transp_base_document;
+      TranspBaseDocumentType   = transp_base_document_type;
+      TranspBaseDocumentItem   = transp_base_document_item;
+      TransportationEquipmentG = transportation_equipment_g;
+      TransportationEquipmentT = transportation_equipment_t;
+      TranspEquipmentPlateNum  = transp_equipment_plate_num;
+      TranspEquipRegistration  = transp_equip_registration;
+      TranspOrdItemPackageId   = transp_ord_item_package_id;
+      ProductId                = product_id;
+      MaterialFreightGroup     = material_freight_group;
+      TransportationGroup      = transportation_group;
+      TranspOrdItemQuantity    = transp_ord_item_quantity;
+      TranspOrdItemQuantityU   = transp_ord_item_quantity_u;
+      TranspOrdItemGrossWeig   = transp_ord_item_gross_weig;
+      TranspOrdItemGrossWe2    = transp_ord_item_gross_we_2;
+      TranspOrdItemGrossVolu   = transp_ord_item_gross_volu;
+      TranspOrdItemGrossVo2    = transp_ord_item_gross_vo_2;
+      TranspOrdItemNetWeight   = transp_ord_item_net_weight;
+      TranspOrdItemNetWeig2    = transp_ord_item_net_weig_2;
+      TranspOrdItemDngrsGds    = transp_ord_item_dngrs_gds;
+      Repositoryid             = repositoryid;
+      Fileobjectid             = fileobjectid;
+    }
+  update;
+  //                delete     ;
+  field ( readonly ) TransportationOrderUuid;
+  action uploadfile parameter zusfile result [1] $self;
+  function downloadfile result [1] CMIS_S_CONTENT_RAW;
+  association _FREIGHTORDER;
+}
